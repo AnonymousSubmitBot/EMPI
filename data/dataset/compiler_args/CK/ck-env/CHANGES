@@ -1,0 +1,759 @@
+* 2021.05.02 - [gfursin] fixed a bug in module:package when reinstalling existing package
+
+* 2021.05.01 - [gfursin] print how to solve ImageNet 2012 installation issue
+
+* 2021.04.23 - [gfursin] do not ask to select variations in "ck install package" 
+                         when there are 2 or more variations!
+
+* 2021.04.22 - [gfursin] added --force_version to "ck detect soft" to force version.
+                         Useful to automate autodetection of imagenet, for example.
+
+* 2021.04.18 - [gfursin] added --quiet flag to automatically enter default anser to most questions.
+
+* 2021.04.16 - [gfursin] extended module:package to ask a user to select a variation 
+                         for a given package when there are multiple versions available.
+
+* 2021.03.24 - [sztaylor] fix cpu & gpu set_freq commands
+
+* 2020.10.02 - [gfursin] added --no-check-certificate to several imagenet packages
+                         https://github.com/ctuning/ck/issues/126
+
+* 2020.09.25 - [gfursin] minor update in search_in_variations -> pass download_tags to list function 
+                         for auto-download from the CK platform
+
+* 2020.04.22 - [gfursin] pass --rebuild to dependencies (see #104)
+                         added LLVM 9.0.0 & 10.0.0
+
+* 2020.04.13 - [gfursin] a few clean ups for cKnowledge.io
+
+* 2020.04.10 - [gfursin] added module:solution to keep universal solutions
+                         with automated installation of dependencies and benchmarking
+
+* 2020.03.10 - [gfursin] removed cfg:list-of-repos . The list of all components 
+                         and repos is now available at https://cKnowledge.io
+
+* 2020.02.16 - [gfursin] added module:log to abstract logs
+
+* 2020.01.31 - [gfursin] added "problem":"yes" key in package meta to be able to stop
+                     problematic packages such as imagenet-2012. In such case
+                     a message is printed from problem.txt!
+
+* 2019.10.06 - [gfursin] added extra keys to OS descriptions; 
+                     added Android29;
+                     improved --quiet in ck detect soft
+
+* 2019.09.10 - [gfursin] started working on Sphinx documentation for CK kernel
+                     fixed minor error in module:os
+
+* 2019.06.15 - [gfursin] added "CK_COMPILER_FLAG_STD_GNU89" to Android NDK GCC and MILEPOS GCC
+                     https://groups.google.com/forum/#!msg/collective-knowledge/ZmhJy48XhDE/HmT7-18bBgAJ
+
+* 2019.03.30 - [gfursin] added soft:android.ndk.toolchain (to support new Android NDKs with LLVM)
+                     and packages compiler-llvm-7.0.1-universal & compiler-llvm-8.0.0-universal
+
+* 2019.03.18 - [gfursin] added OpenJDK packages; removed broken Oracle JDK
+
+* 2019.03.08 - [gfursin] added LLC to soft:compiler.llvm
+
+* 2019.03.05 - [gfursin] added link to http://ReuseResearch.com
+
+* 2019.02.19 - [gfursin] added "CLUSTER" machine to describe any cluster configuration (SysML'19)
+               [gfursin] added imagenet.min package and a few soft detection plugins for Imagenet
+
+* 2019.02.12 - added Deep500 package and soft detection plugin
+
+* 2019.02.11 - [gfursin] fixed listing of repos
+
+* 2019.02.08 - [gfursin] improved handling of templates
+             - [gfursin] improved problem reporting in third-party packages
+
+* 2019.02.01 - [gfursin] added EasyBuild soft
+
+* 2018.12.15 - [gfursin] fixed registration of Clang from Android NDK >= 17 with LLVM C++ lib
+                     fixed detection of GCC from Android NDK >= 18b (+windows)
+
+* 2018.12.11 - [gfursin] fixed ck snapshot artifact (with Leo's feedback)
+
+* 2018.12.05 - [gfursin] moved xsmm and netcdf soft and package from ck-scc18
+               [gfursin] added detection of libraries via .settings and spack yaml
+               [gfursin] added different OpenMPI packages
+
+* 2018.12.05 - [gfursin] added --search_dir (search only in this dir)
+                     useful for Spack and EasyBuild
+
+* 2018.12.03 - [gfursin] improved reuse_deps with different tags
+                     improved detection of Intel MPI
+                     added HDF5 package for seissol compatibility
+
+* 2018.12.02 - [gfursin] added "ck set kernel var.minimize_soft_detect_output=yes"
+                     to minimize soft detection output (off by default)
+             - [gfursin] added "ck detect soft --search_depth={num}"
+                     and "ck set kernel var.force_soft_search_depth={num}"
+
+* 2018.11.29 - added workflow description for repository listing
+
+* 2018.11.28 - added info about failed packages (how to report)
+
+* 2018.11.26 - added API to listed modules
+
+* 2018.11.21 - [FGG and Stephen Herbein] do not prune symbolic links
+               when detecting software (otherwise have strange paths)
+
+* 2018.11.14 - [FGG and Stephen Herbein] improved soft search in HPC 
+               (ck set kernel var.soft_search_dirs=dir1,dir2,...)
+
+* 2018.09.25 - [gfursin] added package cmake 3.12.2
+               [gfursin] fixed bug reported in https://github.com/ctuning/ck-env/issues/77
+
+* 2018.09.24 - [gfursin] added packages for LLVM 6.0.1 and 7.0.0
+
+* 2018.09.02 - [gfursin] added missing customize.py for lapack
+
+* 2018.08.16 - [gfursin] added Python deps to Scons
+
+* 2018.08.14 - [Leo] added first automated tests
+               [gfursin] moved outdated JDK 9 to ck-old-packages repo, and added JDK 8.181 and JDK 10.0.2
+
+* 2018.07.27 - [Leo] adding support for permanent entries
+               [gfursin] added support to clean/rm entries from local repo by default
+
+* 2018.07.21 - [gfursin] added "ck replace_strings_in_file misc"
+                     to customize text files like config.cmake in a new TVM package
+
+* 2018.07.19 - [gfursin] added soft and package for Python matplotlib and requests 
+                     needed for VTA workflow from TVM
+
+* 2018.07.17 - [gfursin] added support for new website when generating lists of components
+
+* 2018.07.14 - [gfursin] added platform.npu (while keeping platform.nn for any neural network even biological)
+
+* 2018.07.09 - [gfursin] fixed intel mpi detection
+                     fixed compilation of HDF5 parallel version with intel mpi
+                     renamed soft:lib.mpiicc to soft:lib.mpi.intel
+                     moved package:lib-openmpi-1.10.3-universal from ck-math repo
+                     unified vars for soft:lib.mpi
+
+* 2018.06.28 - [gfursin] added basic templates for package plugins
+
+* 2018.06.27 - [gfursin] added basic templates for soft plugins
+
+* 2018.06.22 - [gfursin] added support for the latest Android NDK in libjpeg 
+                     (needed for our Android app to crowdsource DNN benchmarking)
+
+* 2018.06.19 - [gfursin] added NumPy package/soft and cleaned up other Python packages meta ...
+
+* 2018.06.18 - [gfursin] added ck list_kernel_functions misc to generate docs about CK functions
+               [gfursin] added automatic generation of a list of repositories
+
+* 2018.06.16 - [gfursin] added detection of OpenCL library on Linux
+
+* 2018.06.13 - [gfursin] added support for remote quantum machines 
+                     in the "machine" module
+
+* 2018.06.08 - [gfursin] added xml module to validate XML files via DTD
+                     (needed to generate ACM DL proceedings for ReQuEST tournament)
+               [gfursin] added universal XML generator from special dict
+                     (to automate generation of ACM proceedings)
+
+* 2018.06.07 - [gfursin] fixing GCC stdlib++ detection on Windows 
+                     (see https://github.com/BVLC/caffe/issues/5631#issuecomment-395323054)
+             - [gfursin] automatically generate _CYGWIN for _BIN,_LIB,_INCLUDE paths 
+                     on Windows (useful to build Caffe)
+
+* 2018.06.01 - [gfursin] added support for os:android26* android27* and android28*
+                     improved detection of correct Android NDK GCC
+
+* 2018.05.30 - [gfursin] fixed soft auto-detect when have no_tags (see #68)
+
+* 2018.05.29 - [gfursin] added "ck snapshot artifact --repo={name of repo}" to prepare a zip file
+               with selected repo, all dependencies, ck-master and 2 scripts 
+               to prepare virtual CK environment with repo snapshots 
+               and to start a shell - needed to automatically prepare a snapshot of 
+               CK ReQuEST workflows and artifacts for ACM Digital Library.
+
+* 2018.05.24 - [gfursin] added universal handling of templates for new entries in misc module
+
+* 2018.05.21 - [gfursin] added support for host separator via $#sep#$ in soft_file_universal
+
+* 2018.05.16 - [gfursin] added soft/package for spack: https://github.com/spack/spack
+
+* 2018.05.15 - [gfursin] added ImageNet train dataset package/soft
+
+* 2018.05.14 - [gfursin] moved here imagenet soft/packages for imagenet (aux,val) from ck-caffe
+               to be able to reuse across different AI frameworks (TF, Caffe, Caffe2, MXNet, CNTK
+
+* 2018.05.03 - added support to machine module (target configuration) for Apache AVRO farms of machines
+               (to support ReQuEST submission)
+
+* 2018.04.13 - added packages for LLVM 5.0.1 and 6.0.0, and fixed LLVM 4.x and 5.x for aarch64
+
+* 2018.04.10 - added package:utils-unix-win-from-git-2.7.10 (see https://github.com/BVLC/caffe/issues/5654)
+             - added "-debug" option to "ck install package" to debug installation from shell with resolved deps
+
+* 2018.04.07 - added support for RPC remote machine (ck add machine) - useful for accessing TVM/MXNET
+
+* 2018.04.06 - added "disable_if_env" to better control deps (based on ReQuEST needs)
+
+* 2018.03.31 - added printing of versions when resolving dependencies
+
+* 2018.03.19 - added module:artifact to describe artifact for ReQuEST tournaments, conferences and journals
+
+* 2018.03.16 - added os:android25-arm64
+
+* 2018.03.13 - added compiler_tag without version, for easier filtering. Support both compiler and host-compiler.
+
+* 2018.03.12 - renamed fgg.misc to misc (with various productivity functions)
+             - added "ck add_key misc" to update keys in meta of selected entries
+               (needed to add "dimensions" in description of ReQuEST artifacts)
+             - [LG] added 'update_tags_by_target_os_uoa' section to differentiate
+               between MacOS and "true Linux" (macos-64, linux-64, linux-32)
+
+* 2018.03.11 - improved wiki listing of soft/packages (added general tags):
+               * https://github.com/ctuning/ck/wiki/Shared-soft-descriptions
+               * https://github.com/ctuning/ck/wiki/Shared-packages
+
+* 2018.03.09 - added bazel 0.11.1
+             - [LG] added a 'compiled-by-$compiler$-$version$' tags to simplify filtering by compiler
+             - [LG] fixed package:lib-leveldb-1.20 to make make use the selected compiler
+
+* 2018.03.08 - added latest version of protobuf + fixed build for windows
+             - added experimental mode to "ck install --reuse_deps" to remember deps through installation of sub-deps
+
+* 2018.03.07 - [LG] generalized package:lib-leveldb-1.20 install script to use variables coming from meta.json as much as possible
+             - [LG] bugfix: library files can be located deeper down the tree and should still be detected correctly
+             - [LG] detecting library's version by parsing symbolic link names (supporting both Linux and MacOSX conventions)
+
+* 2018.03.06 - fixed bug in ck virtual env for windows
+             - fixed LLVM detection on latest Windows (targets)
+             - added cmake packages v3.10.2 for Windows
+             - added package to build LLVM on Linux and Windows
+             - [LG] fixed package:lib-leveldb-1.20 to preserve symbolic links between library files (for future version identification)
+
+* 2018.03.05 - [LG] added a new soft:lib.leveldb entry for detecting previously implicit dependency
+             - [LG] added a new package:lib-leveldb-1.20 entry for installing LevelDB from gitHub
+             - [LG] major compilers to use the file extensions provided by OS
+
+* 2018.03.02 - added possibility to reuse env from installed packages during reply
+             - [LG] delete-and-install-package deletes old incarnation of unZIPped archive before install
+
+* 2018.03.01 - added CK_ENV_LIB_BOOST_LFLAG_REGEX to boost ...
+
+* 2018.02.27 - fixing bug in the latest ck-env commit
+
+* 2018.02.25 - fixing replay with --deps to prune envs by specific package, not just tags
+
+* 2018.02.22 - added support to select multiple environments separated by comma 
+               for "ck vitual env", i.e. ck virtual env:UOA1,UOA2,UOA3
+
+* 2018.02.21 - added CK_LLVM_CONFIG var to LLVM soft desc
+             - [LG] fixed compiler.icc to set correct ICC-specific binary names and paths
+
+* 2018.02.20 - added deps_summary in env module to prepare
+               recursive summaries of all resolved deps for reproducibility
+             - [LG] fixed compiler.icc to present the correct 'toolset' var consumed by Boost
+
+* 2018.02.19 - added platform.dsp dummy to be improved later 
+
+* 2018.02.06 - fixed typo with CK_GPU_* env to set GPU freq for individual cores
+
+* 2017.12.21 - added lib-xml2 (Linux); HPCToolKit
+
+* 2017.12.06 - added PAPI and HPCToolKit libmonitor
+
+* 2017.11.21 - added extra_name to ck detect soft to separate various installations
+               such as Python 3.6 vs Anaconda Python 3.6
+
+* 2017.11.20 - improved Intel OpenCL detection for 2017 SDK
+             - improved CK env for latest Visual Studio 2017 (15.4)
+             - fixed detection of latest Android NDK on Windows
+             - fixed detection of cuDNN on Windows
+             - added possibility to turn on/off specific cores during crowd-tuning
+
+* 2017.11.17 - improved ArmCL detection
+
+* 2017.11.12 - added possibility to enable dependency based on env during package installation 
+               (for example, ck install package --env.OPENCL=ON)
+
+* 2017.11.11 - added detection of NN devices (Movidus)
+
+* 2017.11.10 - moved run_and_get_stdout from CK kernel to module OS
+               to keep compatibility with the CK now available in official Ubuntu 17.04+
+
+* 2017.11.09 - added possibility to skip tool version recheck (to see if environment changed during expeirments)
+             - added  "script_set_ondemand_cpu_freq": "ck-set-cpu-ondemand" 
+               and "script_set_ondemand_gpu_freq": "ck-set-gpu-ondemand" 
+               to all related OS entries to "calm" CPU/GPU experiments between repetitions
+               to avoid system overheating
+             - added possibility to customize package tags from pre_path function:
+               currently used in ARMCL to add tags based on env such as (USE_OPENCL, USE_GRAPH, USE_NEON, etc)
+
+* 2017.11.08 - added ninja.exe code generator for Windows
+
+* 2017.11.02 - fixing issue #16 - .dylib for MacOS (32&64 bits)
+
+* 2017.10.26 - detect ipython (useful for interactive DNN)
+             - pass extra params to git (useful for --recursive for Caffe2)
+
+* 2017.10.24 - fixed bug with CUDA 9.0 detection on Windows
+
+* 2017.10.23 - added support for OS extensions when detecting soft (useful for .dylib on MacOS)
+
+* 2017.10.18 - added latest JDK 9.0.1 and stable 8u131
+             - added LLVM 5.0.0
+
+* 2017.10.16 - added scons (soft & latest package)
+
+* 2017.10.14 - added newer wget.exe for Windows (to support latest SSL)
+             - added newer unzip.exe for Windows
+             - added channel-stable to stable packages
+
+* 2017.10.13 - added possibility to specify "$#path_from_cid=" in install_env in packages
+
+* 2017.10.12 - added "or_tags" to deps to select soft/env/package by groups of tags with OR operator
+
+* 2017.10.10 - added support to rebuild deps during replay from another machine using package UOA
+
+* 2017.10.09 - changed lib.acl to lib.armcl
+
+* 2017.10.05 - added soft:tool.valgrind
+
+* 2017.10.04 - added dvdt-prof2 to latest dvdt prof and asking for Boost >= 1.64.0
+             - added package sorting by "sort" key besides version and name
+               (to be able to suggest recommended)
+
+* 2017.10.03 - added support to customize detect soft via --env.XYZ=abc
+             - added support to set version_from and version_to in deps
+               and in ck detect soft, for example
+               $ ck detect soft --tags=boost --version_from=1.62.0 --version_to=1.65.0
+             - added "get_all_versions_in_deps" function to module:env
+               to list recursively all versions of SW deps 
+
+* 2017.10.01 - minimized questions when installing packages
+
+* 2017.09.29 - added support for package channels and comments
+
+               When package channel is specified via "ck set kernel var.package_channel={stable}",
+               "channel-stable" will be added to all package tags during installation thus stabilizing package
+
+               Moving back to development version is by "ck set kernel var.package_channel="
+
+             -  If package meta has key "comment", it will be printed in a package selector
+
+* 2017.09.28 - added support to run Python scripts from CK entries
+
+* 2017.09.21 - added support to cache and reuse dependencies by tags (for automating crowdbenchmarking)
+             - reverted update of symlinks in soft
+
+* 2017.09.19 - minor output improvement
+
+* 2017.09.03 - added "ck virtual env" to pre-set environment in a given/new shell for debugging
+
+* 2017.06.06 - added flag --full_path to specify path to the installed soft during "ck detect soft"
+
+* 2017.05.25 - added flag --soft_name to specify non-standard tool name to search
+
+* 2017.05.22 - added --search_dirs in ck detect soft to specify extra dirs where to search soft during auto-detection
+             - improving GCC detection on non-standard platforms (useful for Caffe* installations)
+
+* 2017.05.15 - improving detection of different versions of python and pip (useful for TensorFlow)
+             - added --extra_tags to install package
+
+* 2017.05.10 - added protobuf 3.2 & 3.3 for Linux, Windows and Android (needed for Caffe2)
+
+* 2017.05.08 - added ARM compute lib description
+             - passing updated env to all package/soft customization scripts
+
+* 2017.04.28 - added 'ck distribution package' to create binary distributions 
+               (useful for Caffe crowd-benchmarking and crowd-tuning)
+
+* 2017.04.26 - added support for LMDB lib for Windows
+
+* 2017.04.25 - added experimental mode to rebuild package without download (ck install package:{name} --rebuild)
+             - added ck xset env with default flags to quickly set env from command line (useful for caffe python)
+
+* 2017.04.23 - added possibility to customize path during package installation (--path=)
+
+* 2017.04.22 - fixed bug when detecting already installed via CK software (restoring tags!)
+
+* 2017.04.21 - fixed recording of package UOA when automatically detecting already installed soft (restoring env - needed for Caffe crowd-benchmarking)
+
+* 2017.04.20 - added LMDB universal package (not completely working on Windows) ...
+
+* 2017.04.19 - added adb.exe for Windows to os:windows-32
+
+* 2017.04.18 - added package to automatically download and install GCC 6.3.0 for Windows
+               (needed for OpenBLAS + Caffe)
+             - added perl-strawberry-5.24.1.1-win (also for OpenBLAS on Windows)
+             - added use_locale_for_version to detect Microsoft compiler version on non-English Windows
+               (tested on French one)
+
+* 2017.04.17 - added support for AMD OpenCL lib
+
+* 2017.04.15 - moved many generic packages from ck-autotuning here
+             - added LLVM 4.0.0 universal package (still need to fix for Linux)
+             - fixed env refresh when extra package name is available (useful for caffe/tensorflow models)
+
+* 2017.04.14 - fixed mingw gfortran detection on Windows (for Caffe)
+
+* 2017.04.11 - improved LLVM description for Android targets
+
+* 2017.03.28 - fixed java detection
+
+* 2017.03.26 - added soft:env.msys2 needed by bazel for Windows (to build TensorFlow, etc)
+
+* 2017.03.24 - added tag modification in deps for host/target OS
+             - improved support for customized scripts in packages (to update URLs for ARM/Intel + Win/Linux/MacOS/Android)
+
+* 2017.03.16 - added support for VS2017 Community edition (cl + clang)
+             - added support for PACKAGE_URL_MACOS and PACKAGE_GIT_CHECKOUT_MACOS in universal packages
+             - improved universal scripts
+             - added soft:compiler.perl (to compile OpenBLAS on Windows)
+             - added soft:utils.unix.win (set of Unix Utils on Windows useful to compile OpenBLAS on Windows)
+
+* 2017.03.02 - added VIENNACL_CACHE_PATH to soft:lib.viennacl 
+               (now can cache kernels - critical to cache Caffe OpenCL init time by 5x)
+
+* 2017.02.27 - remove equal paths pointed by symbolic links when detecting installed soft
+
+* 2017.02.09 - added "force_cmd_version_detection" and "soft_version_skip_add_target_file"
+               to package meta (useful for ARM WA version detection even if taken from GIT)
+
+* 2017.01.17 - added soft:lib.libdnn and moved soft:lib.tiny-dnn here
+
+* 2017.01.08 - many fixes for Caffe deps for Windows/Android
+
+* 2017.01.07 - various fixes for Caffe deps on Windows/Android
+
+* 2017.01.03 - added '--safe' mode to check environment (will first search for CK packages and only then detecting soft)
+
+* 2017.01.01 - added patch.exe (to support compiling Caffe on Windows)
+
+* 2016.12.30 - added installation to env (ck install package:{name} --install_to_env
+               or persistently: 'ck setup kernel --var.install_to_env="yes"'
+
+* 2016.12.29 - automatically duplicating all deps with 'compiler' in the key
+               to avoid mix ups of env by packages compiled with different compiler ...
+             - added OS android19-arm-v7a-hard-neon, android19-arm-v7a-neon, android21-arm-v7a-hard-neon, android21-arm-v7a-neon
+
+* 2016.12.28 - supporting duplication of deps (primarily to reset compiler vars to correct values at the end)
+
+* 2016.12.27 - supporting LLVM from the new Android NDK (for Caffe)
+
+* 2016.12.26 - updated wget for Windows (to download Caffe deps without SSL certificate)
+
+* 2016.12.21 - major update to record package configuration during installation
+               to be able to correctly re-register soft when env is cleaned ...
+               It also allows to pre-record information about version 
+               and other hints to CK in the CK-compatible third-party packages (bright future ;) ).
+
+* 2016.12.20 - added detection of Raspberry Pi platform features
+             - added detection of Odroid platform 
+             - added "ck clean env:*" to remove both CK entries and related packages
+
+* 2016.12.19 - fixing typos in soft scripts
+
+* 2016.12.13 - fixing bug in module 'machine'
+
+* 2016.12.10 - added script:download-and-install-package-with-cmake to start unifying download + cmake + install
+             - added 'ask_version' for packages
+
+* 2016.12.07 - fixing Bazel soft desc
+
+* 2016.12.05 - added os:*arm-v7a (mainly for Caffe for Android)
+
+* 2016.12.02 - added user-friendly print of OS alias
+             - added better error reporting when host/target OS is not matching env entries
+
+* 2016.12.01 - added soft:compiler.llvm.android.ndk (and started preparing paths without GCC)
+             - a few cosmetic changes
+
+* 2016.11.30 - do not show empty dependencies which are not for a used target
+             - fixed using of preprocess scripts from another entry
+
+* 2016.11.28 - do not look for connected Android device, when just refreshing existing env for it
+
+* 2016.11.24 - fixing version detection of texinfo
+
+* 2016.11.20 - detect OS ABI using uname -m in 'detect platform.os'
+             - added container for any result
+
+* 2016.11.19 - added possibility to skip setup during package installation
+               (for example for root installation)
+             - added soft:lib.ncurses
+             - added "force_env_init" to dependency description to force env script execution
+               (useful for LLVM plugins)
+
+* 2016.11.18 - added LLVM plugin soft description
+
+* 2016.11.16 - added LLVM lib and include to be able to compile plugins
+
+* 2016.11.14 - added support to reuse preinstall scripts from other entries during package installation
+             - added support for CrystaX Android NDK
+             - added extra soft name customization from soft customize.py scripts
+             - added soft:process-compiler-for-cmake (to compile complex projects such as Caffe with all deps via CK)
+
+* 2016.11.11 - fixed bug: no possible not to search for installed software
+               but install from packages (useful for Caffe for Android via CK)
+
+* 2016.11.10 - skipping Android device detection during software detection (if not needed)
+             - added gflags soft description
+             - added glog soft description
+             - added lmdb soft description
+             - removed soft:lib.opencv.android and moved Android target to lib.opencv
+             - added possibility to set ABI in the installation path (for Android)
+             - added protobuf soft description
+
+* 2016.11.08 - improved software detection (now can include sub-path in search)
+             - can add GPGPU features to installation scripts
+             - added soft:compiler.computecpp
+
+* 2016.11.07 - added soft description 'tool.bazel' (useful to recompile Google's TensorFlow)
+
+* 2016.11.04 - making os.getcwd() safer
+
+* 2016.10.24 - added lib.tiny-dnn
+             - fixes possible issues when installing packages for Android devices
+
+* 2016.10.21 - added dependency on ARM WA tool if adding target machine that uses WA ...
+             - added soft:android.sdk description and detection
+
+* 2016.10.18 - added 'no_tags' to prune environments (set function) ...
+
+* 2016.10.12 - added latest x86/x86_64 android OS descriptions (needed for ARM Workload Automation via CK)
+             - added 'ck browse platform.*'
+
+* 2016.10.11 - added 'shell' function to 'os' module to automate simple script execution
+
+* 2016.10.10 - added detection of CPU clusters for Workload automation
+
+* 2016.10.05 - obtaining real serial number of ADB devices (if via network) + adding dep on ADB tool for remote devices
+
+* 2016.09.27 - added support for remote execution unified across all platforms
+
+* 2016.09.26 - changed 'device' to 'machine'
+
+* 2016.09.25 - various improvements in package/soft ...
+
+* 2016.09.24 - added tool.show-cuda-devices and tool.show-opencl-devices
+               for CK widget "platform.gpgpu"
+
+* 2016.09.23 - added optional flag --target to all platform.*
+
+* 2016.09.21 - improved "device" for ARM WA
+
+* 2016.09.19 - added soft:compiler.gfortran
+             - added soft:tool.adb (for ARM workload automation)
+
+* 2016.09.18 - added many new Android descriptions (past and new such as Android 7.0.0)
+             - added 'add', 'browse' and 'show' functions to 'device'
+             - improving new CPU format detection (Linux/Android/MacOS)
+
+* 2016.09.10 - added 'device' module to unify description of available user devices for crowd-benchmarking/crowd-tuning
+
+* 2016.09.09 - updated DVDT OpenCL profiler soft description
+
+* 2016.09.07 - added --env and --env. keys to ck install package to be able to preset env variables
+
+* 2016.09.05 - added HDF5 library description
+             - changed soft functions 'detect' to 'internal_detect' and 'check' to 'detect'
+
+* 2016.09.01 - fixed recursive search of directories in Python 2.x with non-ascii directories
+ 
+* 2016.08.30 - added -fPIE to LLVM soft desc for Android based on ARM64
+
+* 2016.08.11 - fixed detection of environment if already installed when customized version have changed
+             - added record_script flag to quickly rebuild packages without CK
+
+* 2016.08.08 - added flag "extra_path" to package install
+             - added detection of GIT info (revision + date time of last commit) with possibility to add to version
+               (to differentiate the same packages with different GIT revisions)
+
+* 2016.08.03 - fixing static library compilation on MacOS using CLANG (such as OpenME)
+
+* 2016.08.02 - fixed various problems with crowdtuning on MacOS
+
+* 2016.07.29 - added possibility to skip compiler name from suggested path during installation (no_compiler_in_suggested_path)
+
+* 2016.07.24 - added detection of version change (for tools) when setting environments in deps
+             - added dependency on GCC in NVCC (Linux)
+
+* 2016.07.12 - added 'extra_suggested_path' to customization of packages
+
+* 2016.07.07 - added 'no_os_in_suggested_path' to customization of packages to avoid
+               adding OS info at the end of the suggested path. Useful when installing 
+               various OS-independent datasets;
+               added 'no_ver_in_suggested_path';
+               remove the same paths when automatically detecting software
+               (due to possible soft links);
+               added sha1sum.exe to windows
+
+* 2016.07.06 - added 'force_ask_path' to customization of packages to ask path
+               in interactive mode. Useful when installing large training sets
+               for DNN 
+
+* 2016.07.04 - checking if package was already installed...
+
+* 2016.07.03 - fixed freeglut description
+
+* 2016.07.01 - fixed a few bugs reported by Michael Mcgeagh
+
+* 2016.06.29 * added more soft descriptions (Apache thrift, commons-io)
+
+* 2016.06.28 * added support to pass environment variables to installation script via -Dkey=value (similar to cMAKE)
+
+* 2016.06.26 * added support for the new CPU format in Linux/Android 
+
+* 2016.06.22 * added support to customize installation path with any extra deps ('add_to_path')
+
+* 2016.06.20 * added sh to Android description
+
+* 2016.06.19 * fixing Boost description for Linux
+             * fixing openBLAS description for Linux and Android
+             * fixing PENCIL benchmark description
+             * fixing ViennaCL and TBB for Linux
+
+* 2016.06.11 * added support to skip GPU detection (for example, not needed 
+               during compiler flag crowd-tuning but may cause problems),
+               and to force platform.init UOA
+
+* 2016.06.07 * improving package manager:
+               - detecting host CPU info and passing CK_HOST_CPU_NUMBER_OF_PROCESSORS to process script
+               - passing extra env to process script
+               - running pre-processing python script
+               - running scripts from another entry (light inheritance)
+               - adding CLBLAST soft description
+
+* 2016.05.30 * support for new CK web server
+
+* 2016.05.29 - adding 'exchange_locally' mode to platform.* detection and info exchange
+
+* 2016.05.17 - improving different soft description
+             - adding soft description for cuBLAS, cuFFT and cuDNN
+
+* 2016.05.16 - changing CK_CC to CK_NVCC for CUDA soft description
+
+* 2016.05.15 - removing outdated remote-ck1 repository
+
+* 2016.05.13 - moving platform.gpgpu to ck-autotuning repo
+
+* 2016.05.09 - adding 7z to Windows OS env
+
+* 2016.05.06 - adding Julia compiler (after MIT visit)
+
+* 2016.04.28 - major update to automate detection of installed software (for Windows, Linux and Android).
+               To some extent, CK now works as a customizable cmake with the ability to share 
+               software detection modules in the CK format via GitHub.
+
+* 2016.04.18 - adding compiler flag via environment -std=c++0x (CK_COMPILER_FLAG_CPP0X)
+
+* 2016.04.15 - moved platform.init entries from ck-autotuning here
+             - added windows tools to windows-32 OS entry
+             - added DragonBoard platform.init  
+             - improving software/package installation; showing wiki page when problem
+             - added possibility to show user-friendly soft description when resolving dependencies
+
+* 2016.04.14 - added lib.toon for PAMELA project
+               improving customize.py format to setup up software
+
+* 2016.04.12 - added software descriptions for TETRACOM project:
+               freeglut, glew, antlr, glslangvalidator, ogl.get-image, ogl.parser
+
+* 2016.04.08 - started improving automatic detection of software and registration in CK
+
+* 2016.03.25 - improving NN visualization
+
+* 2016.03.24 - adding legacy support and demo for MILEPOST GCC, cTuning plugins, ctuning-cc
+
+* 2016.03.21 - adding universal OpenCL lib soft description for Android devices
+
+* 2016.03.09 - adding soft description for compiler.llvm.android (arm,x86,x86_64)
+               adding soft description for texinfo to reproduce MILEPOST GCC 
+               (for semantic features extraction)
+
+* 2016.03.01 - adding soft description for CLBLAS, CLBLAST, CLTUNE
+
+* 2016.02.18 - changing platform.accelerator -> platform.gpu
+
+* 2016.02.13 - * adding support to automatically resolve, search and install dependencies 
+                 (flag - quiet - useful when crowdsourcing optimization and machine learning)
+
+* 2016.02.10 - * improving CLANG description for Android/ARM via Android NDK
+               * improving CLANG version detection
+               * fixing detection of platform features (correct reloading of existing features 
+                 - useful for arch specific compiler flag crowdtuning)
+
+* 2016.02.09 - * adding postfix for GCC env registration (such as -4.6)
+
+* 2016.02.05 - * record all info during platform detection only 
+                 when ck.cfg['record_all_platform_info']=='yes'.
+                 Needed to avoid mess when recording local or global info
+                 during experiment crowdsourcing.
+
+* 2016.01.27 - * fixing installation of GCC trunk and LLVM trunk 
+                 (preparing new engine to crowdsource optimizations)
+               * adding support to select SW dependencies randomly
+                 (useful to crowdsource experiments)
+
+* 2016.01.16 - * adding UOA and UID of found platforms into detection stream
+
+* 2016.01.12 - * adding possibility to enter and record name of platform, accelerator, cpu and OS
+                 to local cfg if not automatically detected (for crowdtuning)
+
+* 2016.01.11 - * fixing remote repo recaching if selecting different public CK server
+                 during program optimization crowdsourcing
+               * fixing automatic package installation bug (when crowdsourcing autotuning)
+
+* 2016.01.04 - * adding 'show' function to platform.* to list all platforms 
+                 participating in crowd-tuning and their parameters
+
+* 2016.01.03 - * fixing exchange of information during crowd-tuning
+                 (possibility to find platform description in all repos)
+               * adding possibility to identify user when recording
+                 results during crowdtuning
+
+* 2016.01.02 - * fixing GPU/accelerator detection for ARM/Qualcomm (for crowdtuning)
+               * fixing platform name detection (to crowdsource optimization)
+
+* 2015.12.19 - * adding env var CK_PLATFORM_INIT_UOA to automatically 
+                 add platform scripts to PATH when dealing with CPU/GPU frequency
+
+* 2015.12.14 - * fixing soft:lib.opencl.mali compilation for Android
+               * added /data/local/tmp/lib to LD_LIBRARY_PATH when 
+                 benchmarking/running/autotuning/crowdtuning on Android 
+                 (to copy there development libs for dynamic apps
+                  while keeping directory clean)
+
+* 2015.11.21 - * adding "batch_exit" : "exit /b $#return_code#$" to Windows and MingW OS descriptions
+
+* 2015.11.20 - * improving OpenCL lib setup on Ubuntu
+
+* 2015.11.09 - * extending soft:compiler.llvm - adding tool_postfix, for example -3.6 for clang-3.6
+
+* 2015.10.29 - * adding env "CK_COMPILER_FLAG_MFLOAT_ABI_HARD": "-mfloat-abi=hard" to LLVM
+
+* 2015.10.28 - * when automatically installing packages, add not only 'compiler' to dir name,
+                 but also 'support_compiler' ...
+               * changing 'compiler' to 'source-to-source-compiler' tag for pencilcc
+
+* 2015.10.27 - * if more than one package available, allow selection
+               * fixing bug with compiler dependencies when installing packages
+               * fixing pencil deps
+
+* 2015.10.21 - * fixing pencil description from CARP project
+               * adding pencil benchmark env description
+
+* 2015.09.25 - * renaming soft:compiler.mcl to compiler.msvc (for Microsoft C compilers)
+                 (suggested by Anton)
+
+* 2015.09.17 - * automatically calculating integer soft version for internal comparisons
+
+* 2015.09.10 - * adding 'platform.init' module to share scripts and tools that can initialize a given platform
+
+* 2015.08.24 - * adding support to detect Windows 10 ...
+
+* 2015.08.11 - * fixing bug with detection of standard Linux
+
+* 2015.08.09 - * fixing stupid bug with Y/N when installing packages automatically (detected by Cedric)
+               * fixing "ck show env" when using tags and target_os -> was no comma separating sub-tags
+
+* 2015.08.07 - fixed a small bug with setting environment for a given target OS

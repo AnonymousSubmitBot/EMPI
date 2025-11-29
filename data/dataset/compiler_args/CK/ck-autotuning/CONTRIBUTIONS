@@ -1,0 +1,97 @@
+CK uses standard 3-clause (new) BSD license. Contributions are welcome to
+either improve existing functionality or add new functionality possibly using
+new modules.
+
+Contributors should clearly mark their contributions including date and remark.
+
+This is still a relatively new project so we still discuss how to make
+contributions easy and efficient.
+
+For now, patches can be sent directly to the collective-knowledge@googlegroups.com
+
+Bugs can be reported here:
+* https://github.com/ctuning/ck/issues
+
+Thank you for your interest!
+
+=================================================================================
+Acknowledgments:
+
+N: Grigori Fursin
+E: Grigori.Fursin@cTuning.org
+H: http://fursin.net
+O: cTuning foundation
+C: original concept and design
+W: since Nov.1, 2014 
+
+N: Abdul Wahid Memon
+E: engrwahidmemon@gmail.com
+O: 
+C: checking how to convert GCC optimization flags to CK format for autotuning
+W: 2015
+
+N: Michael Mcgeagh
+E:
+O: ARM, UK
+C: discussing farms of CK-powered machines for ARM Workload Automation Framework
+W: 2016
+
+N: Dmitry Savenko 
+E:
+O: 
+C: fixed various problems with crowdtuning on MacOS, etc ...
+W: 2016
+
+N: Milos Puzovic 
+E:
+O: The Hartree Centre, UK (http://www.hartree.stfc.ac.uk/hartree)
+C: discussing farms of CK-powered machines
+W: 2016
+
+N: Harry Plumley 
+E:
+O: The Hartree Centre, UK (http://www.hartree.stfc.ac.uk/hartree)
+C: discussing farms of CK-powered machines, improving post processing scripts in 'program' module
+W: 2016
+
+N: Dave Butcher 
+E:
+O: ARM
+C: reporting a few bugs when intergrating ARM's workload automation to CK
+W: 2016
+
+N: Sam Ainsworth
+E:
+O: University of Cambridge, UK
+C: reporting a few issues when converting his CGO 2017 artifacts to CK format (https://github.com/SamAinsworth/reproduce-cgo2017-paper)
+W:
+
+N: Daniil Efremov
+E:
+O: Xored, Russia
+C: fixing a few bugs
+W:
+
+N: Nikolai Chunosov
+E:
+O: Xored, Russia
+C: suggesting to add --deps.KEY=UOA
+W:
+
+N: Flavio Vella
+E:
+O: dividiti, UK
+C: improving execution of programs like clblast_tune on Android via CK
+W:
+
+N: Wen Yang
+E: GitHub: @w-simon
+O: 
+C: improving autotuning documentation and fixing bugs
+W:
+
+N: David Fernadez Lobon & Guillermo Vigueras
+E:
+O:
+C: suggesting how to add clang/opt compilation
+W:

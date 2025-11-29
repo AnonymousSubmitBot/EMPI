@@ -1,0 +1,118 @@
+{
+  "215d441c19db1fed": {
+    "dict": {
+      "desc": "Portable CK web server and web front-end with a unified JSON API for dashboards, benchmark scoreboards, interactive articles, graphs, crowdsourced experiments, etc (see <a href=\"http://cKnowledge.org/request-results\">demo</a>).",
+      "shared": "git",
+      "sync": "yes",
+      "url": "https://github.com/ctuning/ck-web",
+      "path": "/tmp_ck/CK/ck-web"
+    },
+    "data_uid": "215d441c19db1fed",
+    "data_uoa": "ck-web",
+    "data_alias": "ck-web",
+    "data_name": "CK web",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ck-web"
+  },
+  "4ffcc1307484d840": {
+    "dict": {
+      "path": "/tmp_ck/CK/ctuning-datasets-min",
+      "shared": "git",
+      "url": "https://github.com/ctuning/ctuning-datasets-min"
+    },
+    "data_uid": "4ffcc1307484d840",
+    "data_uoa": "ctuning-datasets-min",
+    "data_alias": "ctuning-datasets-min",
+    "data_name": "cTuning datasets (min)",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ctuning-datasets-min"
+  },
+  "a4328ba99679e0d1": {
+    "dict": {
+      "checkouts": {
+        "stable": {
+          "branch": "master",
+          "checkout": "5efde26"
+        }
+      },
+      "desc": "Portable and customizable CK workflow for multi-dimensional and multi-objective benchmarking, autotuning and co-design (see real use cases: <a href=\"http://cKnowledge.org/rpi-crowd-tuning\">1</a> and <a href=\"https://github.com/dividiti/ck-request-asplos18-mobilenets-armcl-opencl\">2</a>).",
+      "repo_deps": [
+        {
+          "repo_uoa": "ck-env"
+        },
+        {
+          "repo_uoa": "ck-analytics"
+        }
+      ],
+      "shared": "git",
+      "url": "https://github.com/ctuning/ck-autotuning",
+      "path": "/tmp_ck/CK/ck-autotuning"
+    },
+    "data_uid": "a4328ba99679e0d1",
+    "data_uoa": "ck-autotuning",
+    "data_alias": "ck-autotuning",
+    "data_name": "CK (machine learning based) multi-objective autotuning",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ck-autotuning"
+  },
+  "1ff43ae88715a8c1": {
+    "dict": {
+      "desc": "Portable CK package manager with a unified JSON API and with virtual environment allowing automatic detection, installation and rebuilding of a given software or data sets across diverse platforms, environments, compilers and libraries with easy co-existence of multiple tools (see <a href=\"http://cKnowledge.org/shared-packages.html\">shared packages</a>, <a href=\"http://cKnowledge.org/shared-soft-detection-plugins.html\">software detection plugins</a> and <a href=\"https://github.com/ctuning/ck/wiki/Portable-workflows\">other details</a>).",
+      "repo_deps": [
+        {
+          "repo_uoa": "ck-web"
+        }
+      ],
+      "shared": "git",
+      "url": "https://github.com/ctuning/ck-env",
+      "path": "/tmp_ck/CK/ck-env"
+    },
+    "data_uid": "1ff43ae88715a8c1",
+    "data_uoa": "ck-env",
+    "data_alias": "ck-env",
+    "data_name": "ck-env",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ck-env"
+  },
+  "1db88c44a4086634": {
+    "dict": {
+      "desc": "Evolving set of diverse and portable programs shared by the community in the unified CK format to participate in collaborative benchmarking, optimization and co-design while gradually substituting rigid, non-portable and outdated and non representative benchmarks (see the <a href=\"http://cKnowledge.org/rpi-crowd-tuning\">real use case</a>).",
+      "shared": "git",
+      "url": "https://github.com/ctuning/ctuning-programs",
+      "path": "/tmp_ck/CK/ctuning-programs"
+    },
+    "data_uid": "1db88c44a4086634",
+    "data_uoa": "ctuning-programs",
+    "data_alias": "ctuning-programs",
+    "data_name": "cTuning programs",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ctuning-programs"
+  },
+  "76c4424a1473c873": {
+    "dict": {
+      "desc": "Unified CK JSON API for predictive analytics, statistical analysis, graphs, experiments and interactive reports (see the <a href=\"http://cKnowledge.org/rpi-crowd-tuning\">real use case</a>).",
+      "repo_deps": [
+        {
+          "repo_uoa": "ck-web"
+        },
+        {
+          "repo_uoa": "ck-env"
+        }
+      ],
+      "shared": "git",
+      "url": "https://github.com/ctuning/ck-analytics",
+      "path": "/tmp_ck/CK/ck-analytics"
+    },
+    "data_uid": "76c4424a1473c873",
+    "data_uoa": "ck-analytics",
+    "data_alias": "ck-analytics",
+    "data_name": "CK analytics",
+    "path_to_repo_desc": "/tmp_ck/CK/local/repo/ck-analytics"
+  },
+  "36a94d813c46d497": {
+    "dict": {
+      "remote": "yes",
+      "url": "http://cknowledge.org/repo/ck.php?"
+    },
+    "data_uid": "36a94d813c46d497",
+    "data_uoa": "remote-ck",
+    "data_alias": "remote-ck",
+    "data_name": "remote-ck",
+    "path_to_repo_desc": "/tmp_ck/anaconda3/envs/metaron_env/lib/python3.8/site-packages/ck/repo/repo/remote-ck"
+  }
+}

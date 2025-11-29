@@ -1,0 +1,6 @@
+{
+  "desc": "Evolving set of diverse and portable programs shared by the community in the unified CK format to participate in collaborative benchmarking, optimization and co-design while gradually substituting rigid, non-portable and outdated and non representative benchmarks (see the <a href=\"http://cKnowledge.org/rpi-crowd-tuning\">real use case</a>).",
+  "path": "/tmp_ck/CK/ctuning-programs",
+  "shared": "git",
+  "url": "https://github.com/ctuning/ctuning-programs"
+}

@@ -1,0 +1,507 @@
+* 2020.08.25 - [gfursin] fixed a bug when adding a new dataset
+
+* 2020.01.31 - [gfursin] improved error message in program module.
+
+* 2019.07.09 - [gfursin] propagate compiler_tags specifically for "get_compiler_version" subaction based on request here: 
+                     https://groups.google.com/forum/#!topic/collective-knowledge/Lu-kQCSrhIE
+
+* 2019.05.26 - [gfursin] added 2 flags to ck run program
+                 --record_deps={file to record resolved dependencies}
+                 --run_batch_name={use this filename instead of randomly generated one 
+                   to run a workload}
+
+* 2019.04.28 - [gfursin] added automatic installation of MILEPOST repo
+               (see https://github.com/ctuning/ck/issues/100)
+
+* 2019.03.30 - [gfursin] changed -lm to %CK_EXTRA_LIB_M% in package:lib-rtl-xopenme
+
+* 2019.03.08 - [gfursin] added prototype of a flag --use_clang_opt to ck compile program
+
+* 2019.03.05 - [gfursin] added link to http://ReuseResearch.com
+
+* 2019.02.08 - [gfursin] improved problem reporting in third-party program workflows (pipelines)
+
+* 2018.12.02 - [gfursin] added sorting of run_cmds in program meta (using integer "sort")
+
+* 2018.11.28 - [gfursin] added info about failed program workflows (how to report)
+
+* 2018.11.26 - Added APIs to listed modules
+
+* 2018.11.21 - [gfursin] added automatic redirect of some APIs
+
+* 2018.10.31 - [gfursin] minor fix when redirecting git revision to null on Linux 
+                     (see https://github.com/ctuning/reproduce-milepost-project/issues/8).
+
+* 2018.07.17 - [gfursin] added support for new website when generating lists of components
+
+* 2018.07.15 - [gfursin] added recording of MILEPOST features to JSON file: 
+                     ck pipeline program:{program_name} --speed --no_run --milepost --milepost_out_file=milepost-features.json
+
+* 2018.06.21 - [gfursin] when adding new dataset CK will now ask for tags and a file 
+               [gfursin] merged patch from Stuart (see issue #30).
+
+* 2018.06.17 - [gfursin] added --debug_run_cmd to substitute original command line in program with a user one
+
+* 2018.06.06 - [gfursin] automatically generate list of all programs for http://cknowledge.org/shared-programs.html
+
+* 2018.05.27 - [sztaylor] propogate "target" to platform-specific modules (detect info, set freq, etc) - see issue #12.
+
+* 2018.05.24 - [gfursin] provided prototype of templates when adding new programs (ck add program --template)
+
+* 2018.05.20 - added "image classification (simulation)" program.species to differentiate 
+               benchmarking on real image classification vs random values 
+               (needed for some ASPLOS'18 ReQuEST submissions)
+
+* 2018.05.03 - added env (CK_TARGET_PATH) to program to get an access to machine specific files
+               (to support ReQuEST AI benchmark submission with Apache AVRO)
+
+* 2018.04.07 - added support for RPC remote machine (ck add machine) - useful for accessing TVM/MXNET
+
+* 2018.03.09 - improved cross-compilation for Windows for programs
+
+* 2018.02.22 - added "skip_compiler_vars" to program module to support Java programs
+
+* 2018.02.19 - added experiment.view:request-default to visualize 
+               raw experiments from ReQuEST tournaments
+             - added program.species:image.classification
+               for image classification ReQuEST @ ASPLOS'18 tournament
+
+* 2018.02.12 - fixed error reporting in program pipeline 
+               if there is a problem loading pre/post processing python scripts
+               (noted for some ReQuEST submissions)
+
+* 2018.02.09 - dumping tmp-dvdt-prof-<stat repetition number>.json - Flavio needs it 
+               to show better statistics during DNN optimization
+
+* 2018.01.01 - added possibility to add $<< to program sources
+
+* 2017.12.14 - fixed minor issue with CT_REPEAT_MAIN (env is not updated in some cases)
+
+* 2017.11.20 - added possibility to turn on/off specific cores during crowd-tuning
+
+* 2017.11.17 - added extra_ld_vars to deps to be able to add multiple libs for linking during program compilation
+
+* 2017.11.13 - now reading program output with console encoding rather than UTF-8
+             - added "ck find_output program:{some program UOA}" to find all outputs for validation
+
+* 2017.11.09 - added ondemand CPU/GPU freq setting after experiments to "calm" system
+               to avoid overheating on embedded/IoT devices
+             - print LWS and GWS for OpenCL kernel profiles
+
+* 2017.11.08 - added script:ctuning.process.dvdt-prof to process raw OpenCL stats from dvdt prof
+
+* 2017.10.12 - added dataset file description
+
+* 2017.10.11 - improved program.output validation recording - new outputs are recoded to local
+               unless specified explicitly by --output_validation_repo to avoid polluting existing project repos
+
+* 2017.10.10 - added flag --pipeline_flags to directly update pipeline in "ck autotune pipeline"
+
+* 2017.10.09 - added flag --program_output_uoa to "ck run program" and "ck pipeline program"
+               to be able to check output from a different program 
+               (i.e. create reference output for similar groups of programs)
+
+* 2017.10.05 - added ck pipeline program:xyz --valgrind
+
+* 2017.10.04 - added unified_memory check when detecting OpenCL
+
+* 2017.10.03 - asking for dvdt-prof2
+
+* 2017.10.02 - fixing minor bug when sending multiple data set files to Android device
+             - allow to send only one data set file out of many
+
+* 2017.09.28 - print OpenCL kernel timing from DVDT prof after "ck benchmark program --dvdt_prof"
+             - added support to collect Mali GPU hardware counters if available
+
+* 2017.09.27 - important fix in autotuning to merge env + choices.env 
+               may break things - need to be more tested
+
+* 2017.09.24 - added program tags to program.output and user-friendly name to entry 
+               (can be viewed via ck search program.output --print_name)
+
+* 2017.09.23 - added comparison of numerical outputs with thresholds 
+               (to collaboratively check numerical stability)
+
+* 2017.09.22 - fixed output check if dataset json file present but keys are overloaded from cmd via env ...
+
+* 2017.09.21 - added support to cache and reuse dependencies by tags (for automating crowdbenchmarking)
+
+* 2017.09.20 * added support to load dataset files to run_envs (for example to specify tensorshape via env)
+             * added support to validate output depending on env vars (batch size, randomize, etc)
+             * fixing error when copying program to a non-existen repo
+
+* 2017.09.19 * minor output improvement
+
+* 2017.08.29 * added reduce_bug option to localize bugs during compiler fuzzing (reducing complexity)
+
+* 2017.08.28 * fixing ck replay experiment (proper rebuilding of choices)!
+
+* 2017.08.27 * added experiment.view:fuzzing-basic to view results from crowd-fuzzing various SW such as compilers
+
+* 2017.08.13 * added --shared_solution_cid= (-Ocid-uid1-uid2) to reuse shared solutions in program pipelines
+
+* 2017.07.30 * added prepare_table_with_results program 
+               (generate HTML and Tex with optimization results - useful for interactive optimization reports)
+
+* 2017.07.28 * added demo to reduce solution complexity (pruning compiler flags)
+
+* 2017.07.15 * improved iterative complexity reduction
+             * added skip_best_base_flag to program pipeline (to allow exploration of different base optimization levels with replay)
+
+* 2017.07.14 * fixed complexity reduction of solutions (pruning)
+
+* 2017.05.18 - allow sub-set of command line keys (useful for DNN autotuning)
+             - added program:custom-autotuning-wrapper as a dummy wrapper for customized autotuning plugins
+
+* 2017.05.04 - added description of GCC 6.3.0, 7.0.0, 7.1.0
+
+* 2017.05.03 - added distance calculation by MILEPOST features (reproducing my past work)
+
+* 2017.05.02 - added description of MILEPOST program features
+
+* 2017.04.24 - fixed minor bug during Caffe autotuning on Android devices
+             - removing unnecessary compilation env during workload run
+
+* 2017.04.20 - moved LMDB package to ck-env repo
+             - fixed bug with pre-processing script when running on remote device (should run on host)
+
+* 2017.04.16 - fixed program crowdtuning when multiple target machines are connected
+
+* 2017.04.15 - moved many generic packages to ck-env repo
+
+* 2017.04.06 - updated pipeline.cmd to create customizable autotuning scenarios 
+               and execute external command lines (CK just updates autotuning variables)
+             - added 'loop-with-next' and 'parallel-loop-with-next' autotuning modes
+               (thanks to Flavio Vella)
+             - fix detection of OpenCL on ARM32 devices (-pie flag missing)
+
+* 2017.03.28 - improved processing of env vars via progrma meta
+             - added customization scripts before compilation
+
+* 2017.03.26 - added package:tool-bazel-*-universal (Linux, Windows, possibly MacOS)
+             - added package:env-msys2-20161025 (Windows)
+
+* 2017.03.25 - added package:jdk-8u121-universal (Linux, Windows, partially MacOS)
+
+* 2017.03.23 - moved package:jdk-8u111-linux , lib-libjpeg , tool-bazel-0.4.1 , tool-bazel-0.4.2 from ck-tensorflow repo here
+
+* 2017.03.18 - added package:tool-cmake-3.5.2-universal (for backwards compatibility with Android on Windows)
+
+* 2017.03.16 - added package:tool-cmake-3.7.2-universal
+
+* 2017.03.02 - when running program added support to add env vars from deps by OS tag 
+             - useful to set up vars for Android such as VIENNACL_CACHE_PATH
+
+* 2017.03.01 - added xopenme_get_timer function to xOpenME
+             - added compile -D vars with host and target OS (-DCK_HOST_OS_NAME_{CK OS name} -DCK_HOST_OS_NAME2_{CK OS name 2} -DCK_TARGET_OS_NAME_{CK OS name} -DCK_TARGET_OS_NAME2_{CK OS name2})
+
+* 2017.02.21 - improving ck benchmark program (passing more CMD params)
+
+* 2017.01.09 - added LLVM 3.9.0 package for Mac OS
+
+* 2017.01.29 - added "XOPENME_TIME_FILE" var to change tmp-ck-timer.json output file
+               (for example for parallel processing of Caffe classification)
+
+* 2017.01.26 - added --deps.KEY=UOA
+
+* 2017.01.17 - added OpenCL 1.1 stubs. Also added tags for v1.2 and v1.1 for stabs to specialize deps ...
+
+* 2017.01.14 - improved replay support (for OpenCL kernels from Lift/CLBlast during crowd-tuning)
+
+* 2017.01.13 - changing data_name when copying program ...
+
+* 2017.01.08 - a few fixes to support Caffe on Windows and Android
+
+* 2017.01.05 - added '--skip_exec' to skip execution of a program but still run postprocessing - useful for debugging
+
+* 2017.01.03 - added '--safe' mode to check environment (will first search for CK packages and only then detecting soft)
+
+* 2016.12.30 * do not copy files with the same size to remote device (Android)
+               useful not to copy large DNN models to the remote device
+
+* 2016.12.29 * major update to support compilation of Caffe deps for Android fully via CK
+             * added pre-process script for compilation (mainly to customize various ARM features for Android)
+
+* 2016.12.27 * added Android support for protobuf 3.1.0 and trunk (with patch) to make Caffe work on Android
+
+* 2016.12.23 * now checks if program supports a given host and target (similar to package)
+
+* 2016.12.21 * major update (added run-time SW deps handling)
+             * REVERTED (updating env directly from deps (experimental)) ...
+
+* 2016.12.20 * adding to program module pruning of command lines by deps and vice versa ...
+
+* 2016.12.15 * now pass dataset_uoa, dataset_file, dataset_path to pre and post processing scripts
+               (useful for GEMMBENCH and universal tuning)
+
+* 2016.12.13 * improved prunning of choices in raw experiments
+
+* 2016.12.12 * added "ck benchmark program:XYZ" to automatically set up env, freq, and run autotune with 1 iteration
+             * updated autotuning view
+
+* 2016.12.11 * added output check (for now binary comparison)
+             * sorted machine choices (host is first one to be able to press Enter to select it)
+             * added support to select GPGPU to program pipeline
+
+* 2016.12.10 * added gflags-2.2.0-linux (to be able to install stable gflags if it is not installed)
+             * added glog-0.3.4-linux
+             * added protobuf-3.1.0-linux
+             * fixed selection of OpenCL/CUDA devices for workloads with GPGPU requirement 
+               (to fix them during crowd-tuning/crowd-optimization)
+
+* 2016.12.09 * added protobuf-3.0.0 for Android (otherwise latest trunk doesn't compile for Android)
+
+* 2016.12.05 * recording program version (to distinguish species during crowd-tuning)
+
+* 2016.11.30 * improved gprof output (for RPi project)
+
+* 2016.11.29 * added gflags 2.1.2 for Android (otherwise trunk is not compiling anymore)
+
+* 2016.11.28 * improved GPGPU detection and added --sudo
+               (do not fail if OpenCL lib not found; print no CK-enabled GPGPU devices found)
+
+* 2016.11.20 * added possibility to change characteristics directly from the postprocess script
+
+* 2016.11.18 * redirected git stderr output to null to avoid misunderstandings during compilation
+
+* 2016.11.16 * added clang 3.9.0 as installable package for Linux, Android
+
+* 2016.11.14 * added support to copy extra files to Android
+               (useful for CrystaX NDK to copy libcrystax.so)
+             * added support for both CrystaX and Google NDK
+
+* 2016.11.10 * added gflags package for Android 
+             * added glog package for Android (with patch)
+             * added lmdb package for Android
+             * added opencv package for Android (moved to ck-math)
+             * added Google's protobuf for Linux and Android
+
+* 2016.11.04 * making os.getcwd() safer
+
+* 2016.10.12 * fixing order of libs (https://github.com/ctuning/ck/issues/67)
+
+* 2016.09.27 * adding support for remote execution unified across all platforms
+
+* 2016.09.26 * changing 'device' to 'machine'
+
+* 2016.09.25 * added packages "tool-show-cuda-devices" and "tool-show-opencl-devices"
+
+* 2016.09.23 * added selection of GPGPU target to 'ck detect platform.gpgpu' widget
+
+* 2016.09.22 * added 'device' support to program pipeline (with selector)
+             * added adb soft dependency to android remote hosts
+
+* 2016.09.21 * added support for --params in module "program" to pass parameters
+               to pre and post processing scripts, for example to customize ARM Workload Automation
+
+* 2016.09.19 * added support for --target in module "program" (see module "device" in ck-env)
+
+* 2016.09.15 * added program meta "run_via_third_party":"yes" - to run via WA on Anrdoid, for example.
+
+* 2016.09.05 * changed soft functions 'detect' to 'internal_detect' and 'check' to 'detect'
+
+* 2016.09.04 * fixed selection of wrong dataset when extra dataset tags are present
+             * added --env.{KEY} to pipeline program
+
+* 2016.08.08 * added Git info for OpenME
+
+* 2016.07.20 * added support for CUDA compute 6.x (Pascal) and 7.x (Volta)
+
+* 2016.07.13 * added 'add_file_to' dataset -> to add dataset files and register them in the entry meta
+
+* 2016.07.08 * added pre processing script via CK (with params)
+
+* 2016.06.22 * added possibility to run postprocess script via CK (i.e. with the possibility to reuse all CK functions)
+
+* 2016.06.20 * improving execution on remote device (using .sh instead of CMD which may become too long and fail)
+
+* 2016.06.08 * passing custom autotuner meta from program to custom autotuning script
+
+* 2016.05.30 * support for new CK web server
+             * added possibility to run internal reference autotuning iterations
+               when checking pre-existing solutions (useful for experiment replay/reproducibility)
+
+* 2016.05.29 - added 'exchange_locally' mode to GPGPU detection and info exchange
+             - added support to replay experiments even when customized autotuner ...
+
+* 2016.05.27 - added support to print various files after run
+
+* 2016.05.18 - calculating compute capability for GPGPU ...
+             - passing more internal vars to customized autotuner
+             - add possibility to collect raw results of all autotuning iterations
+               to be processed externally (useful for customized crowd-tuning)
+             - moving machine learning based and customizer autotuning
+               to external plugins
+
+* 2016.05.17 - adding '--no_vars' to skip default -D variables and hence use default vars from the sources
+
+* 2016.05.16 - adding 'program.behavior' module to crowd-benchmark/crowd-tune program behavior
+               across diverse data sets and hardware
+
+* 2016.05.13 - moving platform.gpgpu here from ck-env repository to prepare for CUDA/OpenCL crowd-tuning
+
+* 2016.05.06 - adding dummy JULIA language meta info (optimizations), after MIT visit
+
+* 2016.04.28 - major update to packages and environment to automate detection of already 
+               installed software (for Windows, Linux and partially Android).
+
+             - adding compiler_tags to force compiler type (llvm,icc,gcc,microsoft,ctuning-cc,...)
+
+* 2016.04.19 - fixing bug with parallel-random choice selection (during autotuning);
+               found when working on OpenCL crowdtuning for BLAS ...
+             - added possibility to use customized autotuner (directly changes pipeline)
+
+* 2016.04.15 - moving platform.init entries to ck-env (as it is needed for environment, i.e. to support Windows)
+
+* 2016.03.25 - adding support to extract MILEPOST/cTuning cc static program features (legacy)
+
+* 2016.03.21 - adding universal OpenCL stubs package (1.2) targeting Android devices
+
+* 2016.03.07 * adding support for pre processing scripts (improving OpenCL/CUDA/MPI autotuning)
+             * adding extra tags to select datasets (useful for mobile phone crowdtuning to select small datasets)
+
+* 2016.02.26 * adding preliminary support to crowdsource program optimization using Android mobile phones
+
+* 2016.02.17 * adding dimension reduction to pipeline 
+               (leaving only influential optimizations + inverting and turning off all if needed)
+               very important for proper collaborative machine learning
+             * changed platform.accelerator -> platform.gpu
+
+* 2016.02.13 * improving checking of pre-existing solutions. Started implementing automatic pruning of choices ...
+
+* 2016.02.12 * adding support to check pre-selection solutions (found during crowdtuning)
+               during autotuning (preparation for clustering and optimization reactions)
+             * recording characteristics to pre-selected solutions
+
+* 2016.02.10 * adding ARM and general CPU specific flags for GCC and LLVM
+             * changing arch-specific to cpu-specific tags 
+
+* 2016.02.09 * improving GCC compiler flag description
+             * adding support to explore compiler flags with various tags (boolean, parametric, arch-specific)
+
+* 2016.02.08 * preparing LLVM descriptions
+             * fixing detection of the most close compiler description (for autotuning/crowdtuning)
+             * adding aggregation of failed cases (to automatically/manually detect compiler bugs)
+
+* 2016.02.05 * started adding pipeline key descriptions (user-friendly info)
+             * various small fixes and enhancements for experiment replay
+
+* 2016.02.04 * improving search for the most close compiler description (version)
+             * adding GCC v5.3 and v6.0 descriptions
+
+* 2016.02.03 * adding detected compiler description to choices
+             * improving compiler optimization flag web viewer
+
+* 2016.02.01 * added mode to skip recording pipeline/desc info to experiment 
+               (to avoid sending huge files between servers during optimization crowdsourcing)
+
+* 2016.01.29 * general improvements
+             * adding calculation of multi-dimensional improvements
+             * adding universal conditions on solutions during auto-tuning
+               (such as improve energy without sacrificing execution time,
+                or improve execution time without increasing code size ...)
+
+* 2016.01.15 * returning added or deleted points/sub-points during autotuning
+               (for crowd-tuning)
+             * Adding margins when comparing values on Pareto frontier 
+               (used to monitor only significant speedups for when crowdsourcing autotuning
+                particularly across mobile devices)
+             * Fixing small bug in RTL for older MILEPOST project extracted codelets
+               (to crowd-tune them and them use to speed up optimization and modeling
+                large apps based on these codelets - see our papers)
+
+* 2016.01.11 * adding support to select program, cmd, dataset and dataset file randomly
+               to support program multi-objective crowdtuning
+             * adding 'ck clean_tmp program:*' to clean tmp dirs in all program entries
+               (to clean up results of crowd-tuning)
+
+* 2016.01.04 * adding crowdtune action -> redirecting to "ck crowdsource program.optimization"
+
+* 2015.12.31 * adding dummy "program.output" to check program output during benchmarking/tuning
+
+* 2015.12.30 * adding "ask_enter_after_each_iteration" - if 'yes', ask to press Enter after each iteration
+               - useful for debugging, analyzing Pareto and checking speedups
+             * fixing bug with feature selection for Pareto
+
+* 2015.12.15 * adding "force_pipeline_update" key to properly update pipelines (workflows) during replay
+
+* 2015.12.13 * adding boolean keys "compilation_success_bool" and "run_success_bool" (True/False)
+               to autotuning pipeline to speed up predictive analytics
+             * recording extra info for reproducibility in flat array (pipeline_state 
+               with statistical repetition number and with pipeline fail and reason)
+
+* 2015.12.12 * failing autotuning pipeline if post-processing scripts fails
+
+* 2015.12.07 * fixing compiler flag autotuning demo (small API change)
+             * fixing a bug in scatter graphs (found when plotting results of multi-objective optimization)
+
+* 2015.12.06 * adding 'local_platform' key to be able to use local platform parameters
+               (useful to retarget experiments from another machine)
+
+* 2015.11.23 * adding algorithm module dummy (future work)
+
+* 2015.11.22 * fixing compile flag autotuning demos; 
+             * fixing a few bugs in random compiler flag autotuning (iterative compilation);
+
+* 2015.11.20 * fixing problem with return code when compiling programs, if programs are not from GIT repo
+
+* 2015.11.16 * adding correct selection of default parameters for the first iteration of random autotuning 
+               (noticed during dgemmbench OpenCL autotuning)
+
+* 2015.11.10 * adding "sleep" parameter to autotune pipeline (set delay between iterations)
+             * fixing error in exhaustive exploration when using "loop" with "choices" 
+             * adding extra_dataset_files to dataset module to support more files
+               when sending to Android (such as OpenCL autotuning via mobile phones)
+
+* 2015.10.28 * adding CK_PROG_COMPILER_VARS when compiling via script ...
+             * adding "git rev-parse HEAD" during compilation to check
+               GIT hash for the compiled program (useful to debug and explain
+                unexpected behavior when reproducing experiments)
+
+* 2015.10.27 * adding 'cp' to copy programs and update 'backup_data_uid' (fixing issue #41)
+
+* 2015.10.22 * adding support to compile via scripts 
+                    (useful for PENCILCC from CARP project and LLVM LNT)
+                  * adding "add_extra_env_for_compilation" in compilation meta
+                    (useful for PENCILBENCH)
+
+* 2015.09.25 * fixing xopenme.h for Windows 
+
+* 2015.09.22 * fixing pipeline update when dataset is changed (i.e. updating related dataset files)
+                    (reported by Anton)
+                  * taking statistical repeat from pipeline if exists (to properly replay experiments) 
+
+* 2015.09.10 * moved 'script:platform.init' to 'platform.init:*'
+
+* 2015.09.09 * adding 'skip_stat_analysis' to compact recorded data when stat analysis is not needed
+                    (useful for CLSmith)
+                  * adding function 'import_all_files' in 'dataset' to automatically register all dataset files
+
+* 2015.09.08 * improving dataset file selector (suggested by Anton)
+                  * making text to select UIDs less ambiguous (asked by Anton)
+                  * fixing program calibration problem for slambench (detected by Anton)
+                  * if iterations in pipeline == -1, infinite loop (suggested by Andrei Lascu)
+
+* 2015.09.02 * turning off 'state check' (frequency change during experiments) by default
+                    in autotuning demos
+
+* 2015.09.01 * adding timeout for program compilation and execution
+                    (useful for research in computer engineering where
+                    generated code may be buggy and result in infinite loops,
+                    i.e. during autotuning or compiler testing and bug detection)
+                  * providing more info about compilation and execution failures
+                  * adding possibility to record only failed cases
+                    (useful to crowdsource testing compilers/programs/os/architecture for bugs)
+
+* 2015.08.12 * adding 'auto' tag to identify/detect automatically extracted compiler descriptions
+                  * adding parsing of reserved key $#ck_take_from_{CID}$# - for example, used to calculate accuracy for autotuning in slambench
+                  * adding possibility to reverse key order in Pareto frontier filter during multi-objective autotuning 
+                    (useful for FPS in slambench, for example)
+
+* 2015.08.11 * showing compiler flags in HTML (when viewing entries)
+                  * fixing some wrong compiler flag descriptions
+
+* 2015.08.10 * added GCC 5.2.0 CK package (will be downloaded and installed)
+
+* 2015.08.09 * add extra dict when recording experiments (useful to record name and subview_uoa, for example)
+                  * fixing a few bugs in experiment viewing

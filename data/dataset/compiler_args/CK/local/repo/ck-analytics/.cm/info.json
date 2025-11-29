@@ -1,0 +1,15 @@
+{
+  "backup_data_uid": "76c4424a1473c873",
+  "backup_module_uid": "befd7892b0d469e9",
+  "backup_module_uoa": "repo",
+  "control": {
+    "engine": "CK",
+    "iso_datetime": "2023-11-23T15:34:02.242064",
+    "version": [
+      "2",
+      "6",
+      "3"
+    ]
+  },
+  "data_name": "CK analytics"
+}

@@ -1,0 +1,15 @@
+{
+  "backup_data_uid": "03a9348e818c68b0",
+  "backup_module_uid": "b1e99f6461424276",
+  "backup_module_uoa": "kernel",
+  "control": {
+    "engine": "CK",
+    "iso_datetime": "2023-11-23T15:33:47.712705",
+    "version": [
+      "2",
+      "6",
+      "3"
+    ]
+  },
+  "data_name": "default"
+}

@@ -1,0 +1,7 @@
+{
+  "desc": "Portable CK web server and web front-end with a unified JSON API for dashboards, benchmark scoreboards, interactive articles, graphs, crowdsourced experiments, etc (see <a href=\"http://cKnowledge.org/request-results\">demo</a>).",
+  "path": "/tmp_ck/CK/ck-web",
+  "shared": "git",
+  "sync": "yes",
+  "url": "https://github.com/ctuning/ck-web"
+}

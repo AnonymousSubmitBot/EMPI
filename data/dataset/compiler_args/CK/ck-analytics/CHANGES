@@ -1,0 +1,216 @@
+* 2020.08.19 * [FGG] added module:paper
+
+* 2019.10.25 * added support for versioning in experiments
+
+* 2018.11.03 * https://github.com/ctuning/ck-analytics/pull/9
+
+* 2018.05.10 * added CK model.species for AlexNet (for distributed inference workflow from ReQuEST submission)
+
+* 2018.04.07 * added CK model.species for MobileNetsV2 and ResNet 18
+
+* 2018.04.03 * improved experiment selector for dashboard (for ReQuEST)
+
+* 2018.03.21 * added ResNet50 and Inception v3 model species (for ReQuEST)
+
+* 2018.03.19 * added MobileNet model.species (for ReQuEST)
+
+* 2018.03.16 * improved D3 scatter visualization (xerr)
+
+* 2018.03.13 * improved result visualization (for ReQuEST)
+
+* 2018.02.25 * changed logic in ck replay (no reusing deps by default and rebuild packages)
+
+* 2018.02.21 * added dummy "model.species" to identify equivalent models from different AI engines
+
+* 2018.02.19 * improving experiment search pruning for ReQuEST tournaments
+
+* 2018.02.02 * removed ck-tensorflow repo dependency. CK will ask user to install it if needed.
+
+* 2017.11.23 * added unified access to TensorFlow DNN Classifier, 
+               DNN Linear Combined Classifier
+               and Linear Classifier (model.tf)
+             * fixed a bug when buiding very large decision trees via CK scikit-learn
+
+* 2017.10.10 * added support to rebuild deps during replay from another machine using package UOA
+
+* 2017.10.06 * major update to the universal experiment selector
+
+* 2017.10.05 * added unified experiment selector (useful for DNN crowd-tuning)
+
+* 2017.09.23 * improved html table with experiments
+             * improved speed of replay output comparison
+
+* 2017.09.09 * added support in D3 graps to change size and color of individual points 
+               (useful to visualize DNN co-design results)
+
+* 2017.08.29 * added reduce_bug option to localize bugs during compiler fuzzing (reducing complexity)
+
+* 2017.08.28 * fixing ck replay experiment (proper rebuilding of choices)!
+
+* 2017.08.26 * added customization of y axis labels
+
+* 2017.08.25 * added another heatmap example (useful for ML-based autotuning)
+
+* 2017.07.30 * added "process_plus_minus math.variation" to round results
+             * added universal HTML & TEX table generator ("prepare table") -
+               useful for interactive reports
+
+* 2017.07.27 * added individual interactive graph customization (JSON meta)
+
+* 2017.07.26 * improvements in interactive D3 graphs (multiple in the same report)
+
+* 2017.07.24 * minor fix in interactive graphs (if multiple in one CK entry)
+
+* 2017.07.15 * updated replay function (iteratively reducing complexity)
+
+* 2017.07.11 * added further configuration of 2D scatter graphs "point_style" (for Pareto and errorbar, etc):
+                 "capsize" - size of error bars
+                 "leave_only_permanent"
+                 "remove_permanent"
+
+* 2017.07.03 * added plot customization 
+
+* 2017.05.14 * added support for Caffe2 unified classification
+
+* 2017.05.05 * added unified CK AI JSON API for image classification
+
+* 2017.04.30 * started improving collaborative AI API
+
+* 2017.04.08 * improved interactive and reproducible report module
+
+* 2017.04.02 * improved MPL scatter graphs (connected_lines and labels)
+
+* 2017.02.24 * added support for x_ticks_period in D3 interactive graphs
+
+* 2017.01.14 * improved replay support (for OpenCL kernels from Lift/CLBlast during crowd-tuning)
+
+* 2016.12.13 * added '--prune' to 'ck replay experiment'
+
+* 2016.12.12 * added automatic detection of views when browsing experiments
+             * added 'ck browse experiment:{UOA}' to view local experiments in a browser
+
+* 2016.11.07 * prune experiment crowdsourcing scenarios if "skip_from_cmd"
+
+* 2016.09.15 * adding partial support for MediaWiki format in CK-powered interactive reports
+
+* 2016.09.01 * added experiment.raw module
+
+* 2016.08.23 * added multi-object classification using decision trees from skiearn
+
+* 2016.07.26 * added geometric mean
+
+* 2016.07.20 * added jnotebook module to preserve, clean outputs, and run (ipython) jupyter notebooks 
+
+* 2016.05.30 * support for new CK web server
+
+* 2016.05.27 * added drawing of variation in D3 scatter 
+               (used to show empirical results during crowd-tuning)
+
+* 2016.05.24 * starting speedup function to compare 2 lists of samples,
+               perform t-test, check significance, etc.
+
+* 2016.05.21 * possibility to connect lines in scatter graph
+
+* 2016.05.20 * improving D3 visualization (lines + customized URLs)
+
+* 2016.02.26 * adding logging functions during experiment crowdsourcing
+
+* 2016.02.25 * preparing experiment crowdsourcing via mobile devices 
+               (such as collaborative program optimization using Android mobile phones)
+
+* 2016.02.05 * various small fixes and enhancements in experiment replay
+
+* 2016.02.04 * adding d3_2d_bars to draw speedups for all solutions in HTML during crowdtuning
+
+* 2016.02.03 * adding ck.type_long for Python2/3 compatibility
+
+* 2016.02.02 * slightly changing the logic of conditions for multi-objective optimization
+             * fixing a minor bug in experiment processing
+
+* 2016.02.01 * added mode to skip recording pipeline/desc info to experiment 
+               (to avoid sending huge files between servers during optimization crowdsourcing)
+             * added support to pack experiments (to be able to send via Internet
+               (during experiment crowdsourcing such as program crowdtuning)
+
+* 2016.01.31 * fixing calculation of improvements during multi-objective autotuning
+             * adding more conditions "==" & "!="
+
+* 2016.01.29 * general improvements
+             * adding calculation of multi-dimensional improvements
+             * adding universal conditions on solutions during auto-tuning
+               (such as improve energy without sacrificing execution time,
+                or improve execution time without increasing code size ...)
+
+* 2016.01.28 * adding a few functions to automatically detect scenario 
+               (such as multi-objective autotuning) and pick up parameters
+               when plotting graphs
+
+* 2016.01.27 * improving experiment crowdsourcing (making it universal)
+
+* 2016.01.20 * fixing a stupid bug in cmd processing (thanks to Andrei Lascu)
+
+* 2016.01.15 * Adding margins when comparing values on Pareto frontier 
+               (used to monitor only significant speedups when crowdsourcing autotuning)
+
+* 2016.01.11 * Adding ck crowdsource experiment - universal experiment crowdsourcing engine
+               (to support our collaborative OpenCL/CUDA/compiler flag program optimization) 
+
+* 2015.12.18 * When reproducing a given experiment, allow to compare results with another experiment
+               (for example with default one) using --compare_data_uoa
+             * When reproducing experiment in Linux and specifying dimensions to check from CMD, 
+               add possibility to substitute ^ with # (to check long flat keys)
+
+* 2015.12.15 * adding support to prune experimental vectors by threshold (when retrieving results):
+                 "vector_thresholds" and "vector_thresholds_conditions" - useful to keep or skip
+                 points with high variation, for example.
+             * adding "force_pipeline_update" key to properly update pipelines (workflows) during replay
+
+* 2015.12.14 * fixing bug in replay (by accident removed update of choices in pipeline)
+
+* 2015.12.13 * improving reproducibility (experiment replay): 
+               * adding '--deps' flag to reuse all SW deps when reproducing
+                 experiment on the same machine; 
+               * adding '--dims' to compare only one flat key (or use wildcards)
+               * fixing bug with statistical repetitions 
+                 (now taking the correct number from a given experiment)
+ 
+* 2015.12.07 * taking statistical repetition number from the entry when replaying a given experiment
+             * passing 'local_platform' and 'skip_clean_after' to program pipeline when
+               replaying such experiments ...
+             * fixing experiment dictionary output comparison during replay
+
+* 2015.10.09 * added "zmin" and "zmax" params for 3D graphs
+             * added "invert_x_axis", "invert_y_axis" and "invert_z_axis" to 3D graphs
+             * added "x_ticks_scale", "y_ticks_scale", "z_ticks_scale" to 3D graphs
+             * added "color_dict" to 3D graphs
+
+* 2015.10.08 * added 'fmt' parameter to graphs
+             * added 'font' parameters for graphs (size, weight, family)
+
+* 2015.09.19 * added 'skip' flag to skip comparison of results during experiment 'replay'
+
+* 2015.09.11 * added demo/ml-decision-tree - simple decision tree maker (suggested by Sergey Yakushkin)
+             * added 'use' in 'model' to perform predictions
+             * added model recording to CK entry and using model from CK entry 
+               (to share and collaboratively improve predictive models)
+
+* 2015.09.10 * added 'advice' module (about experiments, bugs, models, features, optimizations, adaptation, community remarks ...)
+
+* 2015.09.09 * added 'skip_stat_analysis' to compact recorded data when stat analysis is not needed
+               (useful for CLSmith)
+
+* 2015.09.03 * fixed bug in showing +- % when 0 (noticed by Anton)
+
+* 2015.09.02 * added extension to keys when retrieving experiments
+
+* 2015.08.12 * added possibility to reverse key order in Pareto frontier filter during multi-objective autotuning 
+               (useful for FPS in slambench, for example)
+             * improving interactive graphs for interactive articles
+
+* 2015.08.11 * added output of decision trees to png (for interactive reports and articles via CK)
+             * added horizontal and vertical lines for graphs (used in graphs for adaptive scheduling (predictive modeling and active learning))
+
+* 2015.08.09 * added extra dict when recording experiments (useful to record name and subview_uoa, for example)
+             * fixing a few bugs in experiment viewing
+
+* 2015.08.07 added reverse sorting in experiment tables

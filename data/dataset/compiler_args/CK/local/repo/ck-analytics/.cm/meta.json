@@ -1,0 +1,14 @@
+{
+  "desc": "Unified CK JSON API for predictive analytics, statistical analysis, graphs, experiments and interactive reports (see the <a href=\"http://cKnowledge.org/rpi-crowd-tuning\">real use case</a>).",
+  "path": "/tmp_ck/CK/ck-analytics",
+  "repo_deps": [
+    {
+      "repo_uoa": "ck-web"
+    },
+    {
+      "repo_uoa": "ck-env"
+    }
+  ],
+  "shared": "git",
+  "url": "https://github.com/ctuning/ck-analytics"
+}

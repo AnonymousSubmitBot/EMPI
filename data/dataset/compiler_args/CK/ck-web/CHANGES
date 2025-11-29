@@ -1,0 +1,54 @@
+* 2019.06.20 - [FGG] added SCC-SC19 scenario
+
+* 2019.03.20 - [FGG] added crowd-scenario for MLPerf SysML'19 demo
+
+* 2019.03.01 - [FGG] added module user
+
+* 2019.02.11 - fixed http://cknowledge.org/repo -> /repo in JS script to allow https
+
+* 2018.02.19 - fixing possible issue if tag is not a string in CK entry
+
+* 2017.10.06 - minor fix to HTML selector
+
+* 2017.09.16 - added possibility to search by tags with OR (|)
+
+* 2017.09.05 - added possibility for bold font in top menus & target="_blank"
+
+* 2017.07.26 - improvements in interactive D3 graphs (multiple in the same report)
+
+* 2017.04.02 - removed template from QR-code (nice URL)
+
+* 2016.11.04 - making os.getcwd() safer
+
+* 2016.07.14 * added 'new_window' meta in top menu to add link in a new window
+
+* 2016.06.06 * fixed template parsing in some cases (when using internal CK server)
+
+* 2016.05.30 * support for new CK web server
+
+* 2016.05.20 * allowing style extensions from native modules 
+
+* 2016.05.16 * enhancing browsing configuration when using web templates
+
+* 2016.05.15 * adding customization for top menu
+
+* 2016.03.29 * adding support for directory hierarchy in off-line sites (cTuning.org)
+
+* 2016.03.25 * do not show/download tmp files/directories when viewing entries
+
+* 2016.02.15 * adding extra_brower_text in ck.cfg
+
+* 2016.02.05 * enhancing top menu functionality and adding results from CrowdTuning
+
+* 2016.01.16 * adding possibility to skip sorting when creating HTML selectors
+               (required in ck-crowdtuning)
+
+* 2015.12.08 * adding repo UID when viewing entries (otherwise can have ambiguities in broken repos)
+
+* 2015.10.27 * automatically detecting server host and port, if used!
+
+* 2015.09.17 * supporting both ISO and human readable date during search
+
+* 2015.08.12 * improving interactive graphs for interactive articles
+
+* 2015.08.09 * Fixing html_viewer if error (output error to html)

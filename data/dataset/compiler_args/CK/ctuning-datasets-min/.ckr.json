@@ -1,0 +1,10 @@
+{
+  "data_name": "cTuning datasets (min)", 
+  "data_alias": "ctuning-datasets-min", 
+  "data_uid": "4ffcc1307484d840", 
+  "data_uoa": "ctuning-datasets-min", 
+  "dict": {
+    "url": "https://github.com/ctuning/ctuning-datasets-min", 
+    "shared": "git"
+  }
+}

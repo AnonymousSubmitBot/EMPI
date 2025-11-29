@@ -1,0 +1,151 @@
+CK uses standard 3-clause (new) BSD license. Contributions are welcome to
+either improve existing functionality or add new functionality possibly using
+new modules.
+
+Please report bugs and suggest features at https://github.com/ctuning/ck-env/issues
+
+Thank you for your interest!
+
+=================================================================================
+Acknowledgments:
+
+N: Grigori Fursin
+E: Grigori.Fursin@cTuning.org
+H: http://fursin.net
+O: cTuning foundation
+C: original concept and design
+W: since Nov.1, 2014 
+
+N: Cedric Nugteren
+E: web@cedricnugteren.nl
+O: 
+C: testing CK on MacOS, reporting bugs
+W: 2015
+
+N: Michael Kruse
+E: 
+O: 
+C: suggesting how to improve OpenCL lib registration on Ubuntu
+W: 2015
+
+N: Michael Mcgeagh
+E:
+O: Arm, UK
+C: reporting problem with yaml recording, 
+   CPU feature detection (in new format) and general feedback about ck-wa, 
+   other features related to Workload Automation
+W: 2016
+
+N: Paul Thomson
+E:
+O: Imperial College London, UK
+C: reporting a few bugs with software description on Windows (Microsoft SDK)
+W: 2016
+
+N: Dmitry Savenko 
+E:
+O: 
+C: fixed various problems with crowdtuning on MacOS
+W: 2016
+
+N: Milos Puzovic 
+E:
+O: The Hartree Centre, UK (http://www.hartree.stfc.ac.uk/hartree)
+C: discussing farms of CK-powered machines
+W: 2016
+
+N: Harry Plumley 
+E:
+O: The Hartree Centre, UK (http://www.hartree.stfc.ac.uk/hartree)
+C: discussing farms of CK-powered machines
+W: 2016
+
+N: Dave Butcher 
+E:
+O: Arm
+C: reporting a few bugs when intergrating Arm's workload automation to CK
+W: 2016
+
+N: Sam Ainsworth
+E:
+O: University of Cambridge, UK
+C: reporting a few issues when converting his CGO 2017 artifacts to CK format (https://github.com/SamAinsworth/reproduce-cgo2017-paper)
+W:
+
+N: Nicolay Chunosov
+E:
+H:
+O: Xored
+C: Feedback about issues with Windows installation scripts
+W:
+
+N: C ANIL Reddy
+E:
+O:
+C: reporting problem with textino verison detection (while reproducing MILEPOST project)
+W:
+
+N: Anatoly Belonog
+E:
+H:
+O: Xored
+C: Fixing MingW installation scripts for Windows and LLVM with stdc++ lib for Android
+W:
+
+N: Lucinda Hartfield
+E:
+H:
+O: Arm
+C: Adding new Android OS entries
+W:
+
+N: Dmitry
+E:
+H: https://github.com/zzzzzzzzzzzzz
+O: MIPT
+C: feedback about Unix-Win packages and installation debugging
+W:
+
+N: Stuart Taylor
+E:
+H:
+O: Arm
+C: Suggestions about rebuilding deps during experiment replay from package UOA
+W:
+
+N: Szilard Papp
+E:
+H:
+O: Arm
+C: Fixing error with GPU freq env
+W:
+
+N: Todd Gamblin
+E:
+O: LLNL
+C: discussing how to connect CK and spack, and fixing detection of native LLVM on MacOS (https://github.com/ctuning/ck-env/pull/70)
+W:
+
+N: Wen Yang
+E: GitHub: @w-simon
+O: 
+C: improving autotuning documentation and fixing bugs
+W:
+
+N: Stephen Herbein
+E: 
+O: LLNL
+C: fixing problem with soft detection on HPC systems with NFS
+W: https://herbein.net
+
+N: Alan Melo Clappis
+E: 
+O: 
+C: https://groups.google.com/forum/#!msg/collective-knowledge/ZmhJy48XhDE/HmT7-18bBgAJ
+W: 
+
+N: Herve Guillou
+E: 
+O: CodeReef
+C: testing and feedback
+W: 
