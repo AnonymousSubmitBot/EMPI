@@ -62,16 +62,16 @@ go run distribution_master.go
 For each cpu node in the distribution system, execute the following commands:
 ```shell
 cd $EMPI
-python src/distribution/distribution_eval.py --task_capacity 512 --task_type "cpu"
+python src/distribution/distribution_eval.py --task_capacity 512 --task_type "cpu" --master_host 10.16.104.19:1088
 ```
-The `task_capacity` argument indicates the computational capability of the node. It is advisable not to set the value of `task_capacity` beyond the total number of CPU cores in the node.
+The `task_capacity` argument indicates the computational capability of the node. It is advisable not to set the value of `task_capacity` beyond the total number of CPU cores in the node. The `master_host` argument indicates the hostname of the master node, which depends on the IP address of your master node.
 
 #### Start the GPU task evaluation nodes of the distribution system
 For each gpu node in the distribution system, execute the following commands:
 ```shell
-python src/distribution/distribution_eval.py --task_capacity 40 --task_type "gpu" --gpu_list 0 1 2 3
+python src/distribution/distribution_eval.py --task_capacity 40 --task_type "gpu" --gpu_list 0 1 2 3 --master_host 10.16.104.19:1088
 ```
-The `task_capacity` argument indicates the computational capability of the node. It is advisable not to set the value of `task_capacity` beyond the total number of CPU cores in the node. The `gpu_list` argument specifies the indices of available GPUs.
+The `task_capacity` argument indicates the computational capability of the node. It is advisable not to set the value of `task_capacity` beyond the total number of CPU cores in the node. The `gpu_list` argument specifies the indices of available GPUs. The `master_host` argument indicates the hostname of the master node, which depends on the IP address of your master node.
 
 ### Run EMPI
 Before running, you need to set the IP address of the master node in the distribution system. You can set the value in the file `src/experiments_setting.py`:
